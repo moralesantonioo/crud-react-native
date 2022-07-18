@@ -1,7 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Home = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
+
+    useEffect(() => {
+       
+    }, [])
+
     return (
         <View style={styles.container}>
             <Text>Esto es el Home</Text>
@@ -19,4 +24,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Home;
+export default HomeScreen;
