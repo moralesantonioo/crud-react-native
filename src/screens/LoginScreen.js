@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Alert, Image, TouchableOpacity, Keyboard, Dimensions } from 'react-native';
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
@@ -43,12 +44,14 @@ const LoginScreen = ({ navigation }) => {
             ] */
         );
 
-    
+
 
     const onPressLogin = async () => {
+        await AsyncStorage.setItem('email', email)
         if (email == user.email && password == user.password) {
             setLoading(true)
             setTimeout(() => {
+                //navigation.dispatch(StackActions.replace('Home'))
                 navigation.navigate('Home')
                 setLoading(false)
                 setEmail('')
